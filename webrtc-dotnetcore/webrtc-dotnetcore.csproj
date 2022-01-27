@@ -1,15 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RootNamespace>webrtc_dotnetcore</RootNamespace>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
-
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'webrtc_dotnetcore' " />
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <None Remove="Microsoft.AspNetCore.SignalR" />
+    <None Remove="Microsoft.Azure.SignalR" />
   </ItemGroup>
-
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Azure.SignalR" Version="1.15.0" />
+  </ItemGroup>
 </Project>
